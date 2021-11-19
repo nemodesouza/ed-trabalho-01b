@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Google Drive files
+desktop.ini
+.desktop.ini
+/desktop.ini
