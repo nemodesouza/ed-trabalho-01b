@@ -16,14 +16,23 @@ class Stack:
 
     #Remove o elemento do topo da pilha
     def pop(self):
-        elem = self.__top
-        self.__top = self.__top.__prev
-        return elem
+        if self.__size > 0:
+            elem = self.__top
+            self.__top = self.__top.__prev
+            self.__size -= 1
+
+            return elem.__data
+        
+        raise IndexError("A pilha está vazia!")
+
 
 
     #Retorna o topo da pilha
     def peek (self):
-        pass
+        if self.__size > 0:                        
+            return self.__top.__data
+        
+        raise IndexError("A pilha está vazia!")
 
     #Retorna o tamanho da pilha
     def __len__(self):
@@ -34,7 +43,7 @@ class Stack:
         repr = ""
         pointer = self.__top
         while(pointer):
-            repr = repr + str(pointer.data) + "\n"
+            repr = repr + str(pointer.__data) + "\n"
             pointer = pointer.__prev
         
         return repr
